@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('login','login');
+// Route::view('login','login');
 Route::view('profile','profile');
 Route::get('/logout', function () {
     if(session()->has('user')){
@@ -26,12 +26,12 @@ Route::get('/logout', function () {
     return redirect ('login');
    
 });
-// Route::get('/login', function () {
-//     if(session()->has('user')){
-//         return redirect ('profile');
-//     }
-//     return redirect ('login');
+Route::get('/login', function () {
+    if(session()->has('user')){
+        return redirect ('profile');
+    }
+    return view ('login');
    
-// });
+});
 
 Route::post('/user',[userAuth::class,'userLogin']);
