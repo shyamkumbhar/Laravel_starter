@@ -13,4 +13,5 @@ class userAuth extends Controller
         // echo session('user');
         return redirect ('profile');
     }
+
 }
